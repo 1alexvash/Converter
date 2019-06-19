@@ -1,0 +1,130 @@
+@import "reset";
+@import "responsive";
+
+body {
+  font-family: Arial;
+  font-size: 20px;
+  &:before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(
+      35deg,
+      lighten(purple, 65%),
+      lighten(blue, 20%)
+    );
+  }
+  @include responsive(480px) {
+    font-size: 16px;
+  }
+}
+
+.App {
+  width: 640px;
+  padding: 20px;
+  margin: auto;
+  background: rgba(white, 0.6);
+  box-shadow: 0 0 5px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include responsive(960px) {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  @include responsive(768px) {
+    width: 100%;
+  }
+  @include responsive(480px) {
+    padding: 10px;
+  }
+  .Units {
+    display: flex;
+    justify-content: space-between;
+    button {
+      cursor: pointer;
+      padding: 20px;
+      border: 2px solid black;
+      background: linear-gradient(white, white, lightgray);
+      @include responsive(480px) {
+        padding: 10px;
+      }
+      &.active {
+        color: white;
+        background: linear-gradient(black, black, lightgray);
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .List-of-units {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: relative;
+    @include responsive(480px) {
+      padding: 20px 0;
+    }
+    section {
+      button {
+        cursor: pointer;
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        border: 2px solid black;
+        background: linear-gradient(white, white, lightgray);
+        &.active {
+          color: white;
+          background: linear-gradient(black, black, lightgray);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .swap {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: 0.3s;
+      @include responsive(480px) {
+        width: 48px;
+        height: 48px;
+      }
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+  }
+  .Converter {
+    display: flex;
+    justify-content: space-between;
+    label {
+      p {
+        margin: 0 0 10px 0;
+      }
+      input {
+        padding: 10px;
+        transition: 0.3s;
+        &:enabled {
+          border: 2px solid rgba(deepskyblue, 0.5);
+        }
+        &:focus {
+          box-shadow: 0 0 10px deepskyblue;
+          outline: none;
+        }
+      }
+    }
+  }
+}
