@@ -1,6 +1,6 @@
 # Converter
 
-This app will help to relax
+Convert different units easily with this app
 
 ## Installing the project && running on the local machine
 
